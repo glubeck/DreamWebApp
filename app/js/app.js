@@ -54,6 +54,11 @@ var logoStyle = {
 
 };
 
+var buttonStyle = {
+  padding: '5px',
+
+};
+
 var App = React.createClass({
   render: function() {
     return (
@@ -129,7 +134,18 @@ var Dice = React.createClass({
   render: function() {
     return (
       <div className="container">
-      <p style={textStyle}>Roll the Dice!</p>
+      <p style={textStyle}>What kind of dice?</p>
+      <button type="button" className="btn btn-info">4 Sided</button>
+      &nbsp;
+      <button type="button" className="btn btn-info">6 Sided</button>
+      &nbsp;
+      <button type="button" className="btn btn-info">8 Sided</button>
+      &nbsp;
+      <button type="button" className="btn btn-info">12 Sided</button>
+      &nbsp;
+      <button type="button" className="btn btn-info">16 Sided</button>
+      &nbsp;
+      <button type="button" className="btn btn-info">20 Sided</button>
       </div>
     );
   }
