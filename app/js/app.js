@@ -40,7 +40,7 @@ var textTitleStyle = {
 var textStyle = {
 
   color: 'RoyalBlue',
- 
+  paddingTop: '10px',
   fontSize: '15px',
   fontFamily: 'Comic Sans MS'
 };
@@ -146,7 +146,22 @@ var Dice = React.createClass({
       <button type="button" className="btn btn-info">16 Sided</button>
       &nbsp;
       <button type="button" className="btn btn-info">20 Sided</button>
+      <p style={textStyle}>How many?</p>
+       <button type="button" className="btn btn-success">One</button>
+      &nbsp;
+      <button type="button" className="btn btn-success">Two</button>
+      &nbsp;
+      <button type="button" className="btn btn-success">Three</button>
+      &nbsp;
+      <button type="button" className="btn btn-success">Four</button>
+      &nbsp;
+      <button type="button" className="btn btn-success">Five</button>
+      &nbsp;
+      <button type="button" className="btn btn-success">Six</button>
+      <p style={textStyle}></p>
+      <button type="button" className="btn btn-danger">ROLL THE DICE</button>
       </div>
+
     );
   }
 }); 
