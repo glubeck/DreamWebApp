@@ -4,76 +4,204 @@ var Router = ReactRouter.Router;
 var Link = ReactRouter.Link;
 var Route = ReactRouter.Route;
 
-/*var routes = (
-	<Router>
-	<Route name="app" path="/" component={App}>
-		<Route name="page" path="/page" component={page} />
-		<Route path="*" component={Home}) */
-
-var Page = React.createClass({
-  render: function() {
-    return (
-      <div className="container">
-        <Logo />
-        <NavBar />
-        <List />
-      </div>
-    );
-  }
-});
-
-var NavBar = React.createClass({
-  render: function() {
-    return (
-	<div className="container">                 
- 		<ul className="nav nav-tabs" role="tablist">
-    		<li className="active"><a href="#">Home</a></li>
-    		<li><a href="#">Featured</a></li>
-    		<li><a href="#">Recent</a></li>
-    		<li><a href="#">Popular</a></li>        
-  		</ul>
-	</div> 
-    );
-  }
-});
 
 var Logo = React.createClass({
     render: function() {
-        return <div><img src={'https://pbs.twimg.com/media/CTl2qqFVEAAXZQY.png'} alt="boohoo" className="img-responsive"/></div>;
+        return <div className="text-center" style={logoStyle}>
+          <p style={titleStyle}>Make Your Dreams Come True</p>
+        </div>;
     }
 });
 
-var List = React.createClass({
+var titleStyle = {
+
+  color: 'white',
+  padding: '60px',
+  fontSize: '40px',
+  fontFamily: 'Arial Black'
+};
+
+var textTitleStyle = {
+
+  color: 'RoyalBlue',
+ 
+  fontSize: '30px',
+  fontFamily: 'Comic Sans MS'
+};
+
+var textTitleStyle = {
+
+  color: 'RoyalBlue',
+ 
+  fontSize: '30px',
+  fontFamily: 'Comic Sans MS'
+};
+
+var textStyle = {
+
+  color: 'RoyalBlue',
+ 
+  fontSize: '15px',
+  fontFamily: 'Comic Sans MS'
+};
+
+var logoStyle = {
+  color: 'white',
+  backgroundImage: 'url(' + 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Blue_sky_south_of_France.jpg' + ')',
+  WebkitTransition: 'all', // note the capital 'W' here
+  msTransition: 'all', // 'ms' is the only lowercase vendor prefix
+  height: '180px'
+
+};
+
+var App = React.createClass({
+  render: function() {
+    return (
+      <div>
+      <Logo />
+        <nav className="navbar navbar-default" role="navigation">
+          <div className="container">
+              <div className="navbar-header">
+                <a className="navbar-brand" href="/">Home</a>
+              </div>
+              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul className="nav navbar-nav">
+                  <li><Link to="/ideas">Ideas</Link></li>
+                </ul>
+                <ul className="nav navbar-nav">
+                  <li><Link to="/dice">Dice</Link></li>
+                </ul>
+                <ul className="nav navbar-nav">
+                  <li><Link to="/scoreboard">Scoreboard</Link></li>
+                </ul>
+                <ul className="nav navbar-nav">
+                  <li><Link to="/tournament">Tournament</Link></li>
+                </ul>
+                <ul className="nav navbar-nav">
+                  <li><Link to="/topics">Topics</Link></li>
+                </ul>
+                <ul className="nav navbar-nav">
+                  <li><Link to="/login">Login</Link></li>
+                </ul>
+                <ul className="nav navbar-nav">
+                  <li><Link to="/register">Register</Link></li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <div className="container">
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
+});
+
+var Home = React.createClass({
   render: function() {
     return (
       <div className="container">
-        <ul className="list-group">
-  		<li className="list-group-item">This is the list of things</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-  		<li className="list-group-item">stuff</li>
-		</ul>
+
+      <p style={textTitleStyle}>Game Utilities</p>
+      <p style={textStyle}>Welcome to Game Utilities!  Where all of your dreams will most definitely come true.
+      Here we have a variety of utilities for your everyday gaming needs.  Forgot your dice?  No problem.  Want an
+      easy to use and eye pleasing interface for score keeping?  Got it.  Need a bracket system for a tournament?  Dude.
+      We got your back.</p>
+      
       </div>
     );
   }
 });
 
 
-ReactDOM.render(
-  <Page />,
-  document.getElementById('content')
+var Ideas = React.createClass({
+  render: function() {
+    return (
+      <div className="container">
+      <p style={textStyle}>This is where people can post ideas for fun games</p>
+      </div>
+    );
+  }
+}); 
+
+var Dice = React.createClass({
+  render: function() {
+    return (
+      <div className="container">
+      <p style={textStyle}>Roll the Dice!</p>
+      </div>
+    );
+  }
+}); 
+
+var Scoreboard = React.createClass({
+  render: function() {
+    return (
+      <div className="container">
+      <p style={textStyle}>Score dem boards!</p>
+      </div>
+    );
+  }
+}); 
+
+var Tournament = React.createClass({
+  render: function() {
+    return (
+      <div className="container">
+      <p style={textStyle}>Tournaments go here!</p>
+      </div>
+    );
+  }
+}); 
+
+var Topics = React.createClass({
+  render: function() {
+    return (
+      <div className="container">
+      <p style={textStyle}>Talk about stuff!</p>
+      </div>
+    );
+  }
+}); 
+
+var Login = React.createClass({
+  render: function() {
+    return (
+      <div className="container">
+      <p style={textStyle}>Thou mayest login if thou desirest.</p>
+      </div>
+    );
+  }
+}); 
+
+var Register = React.createClass({
+  render: function() {
+    return (
+      <div className="container">
+      <p style={textStyle}>Register it up dawg.</p>
+      </div>
+    );
+  }
+}); 
+
+
+// Run the routes
+var routes = (
+      <Router>
+        <Route name="app" path="/" component={App}>
+          <Route name="ideas" path="/ideas" component={Ideas} />
+          <Route name="dice" path="/dice" component={Dice} />
+          <Route name="scoreboard" path="/scoreboard" component={Scoreboard} />
+          <Route name="tournament" path="/tournament" component={Tournament} />
+          <Route name="topics" path="/topics" component={Topics} />
+          <Route name="login" path="/login" component={Login} />
+          <Route name="register" path="/register" component={Register} />
+          <Route path="*" component={Home}/>
+        </Route>
+      </Router>
 );
+
+
+
+ReactDOM.render(routes, document.body);
