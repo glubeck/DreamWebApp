@@ -130,36 +130,56 @@ var Ideas = React.createClass({
   }
 }); 
 
+var diceType = 6;
+var diceAmount = 1;
+
 var Dice = React.createClass({
+
+  rollDie: function() {
+
+    var roll = Math.floor(((Math.random()*diceType)+1)*diceAmount);
+
+    alert("You rolled a " + roll);
+  },
+
+  setType: function(type) {
+    
+    diceType = type;
+  },
+
+  setAmount: function(amount) {
+    diceAmount = amount;
+  },
+
   render: function() {
     return (
       <div className="container">
       <p style={textStyle}>What kind of dice?</p>
-      <button type="button" className="btn btn-info">4 Sided</button>
+      <button type="button" className="btn btn-info" onClick={this.setType.bind(this, 4)}>4 Sided</button>
       &nbsp;
-      <button type="button" className="btn btn-info">6 Sided</button>
+      <button type="button" className="btn btn-info" onClick={this.setType.bind(this, 6)}>6 Sided</button>
       &nbsp;
-      <button type="button" className="btn btn-info">8 Sided</button>
+      <button type="button" className="btn btn-info" onClick={this.setType.bind(this, 8)}>8 Sided</button>
       &nbsp;
-      <button type="button" className="btn btn-info">12 Sided</button>
+      <button type="button" className="btn btn-info" onClick={this.setType.bind(this, 12)}>12 Sided</button>
       &nbsp;
-      <button type="button" className="btn btn-info">16 Sided</button>
+      <button type="button" className="btn btn-info" onClick={this.setType.bind(this, 16)}>16 Sided</button>
       &nbsp;
-      <button type="button" className="btn btn-info">20 Sided</button>
+      <button type="button" className="btn btn-info" onClick={this.setType.bind(this, 20)}>20 Sided</button>
       <p style={textStyle}>How many?</p>
-       <button type="button" className="btn btn-success">One</button>
+       <button type="button" className="btn btn-success" onClick={this.setAmount.bind(this, 1)}>One</button>
       &nbsp;
-      <button type="button" className="btn btn-success">Two</button>
+      <button type="button" className="btn btn-success" onClick={this.setAmount.bind(this, 2)}>Two</button>
       &nbsp;
-      <button type="button" className="btn btn-success">Three</button>
+      <button type="button" className="btn btn-success" onClick={this.setAmount.bind(this, 3)}>Three</button>
       &nbsp;
-      <button type="button" className="btn btn-success">Four</button>
+      <button type="button" className="btn btn-success" onClick={this.setAmount.bind(this, 4)}>Four</button>
       &nbsp;
-      <button type="button" className="btn btn-success">Five</button>
+      <button type="button" className="btn btn-success" onClick={this.setAmount.bind(this, 5)}>Five</button>
       &nbsp;
-      <button type="button" className="btn btn-success">Six</button>
+      <button type="button" className="btn btn-success" onClick={this.setAmount.bind(this, 6)}>Six</button>
       <p style={textStyle}></p>
-      <button type="button" className="btn btn-danger">ROLL THE DICE</button>
+      <button type="button" className="btn btn-danger" onClick={this.rollDie} >ROLL THE DICE</button>
       </div>
 
     );
@@ -199,8 +219,11 @@ var Topics = React.createClass({
 var Login = React.createClass({
   render: function() {
     return (
-      <div className="container">
-      <p style={textStyle}>Thou mayest login if thou desirest.</p>
+      <div className="login">
+        <p style={textStyle}>Thou mayest login if thou desirest.</p>
+        <form role="form">
+          <input type="text" value="Hello!" />
+        </form>
       </div>
     );
   }
@@ -209,7 +232,7 @@ var Login = React.createClass({
 var Register = React.createClass({
   render: function() {
     return (
-      <div className="container">
+      <div className="login">
       <p style={textStyle}>Register it up dawg.</p>
       </div>
     );
