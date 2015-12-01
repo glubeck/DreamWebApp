@@ -321,23 +321,39 @@ var Scoreboard = React.createClass({
       </div>
     );
   }
-}); 
+});
+
+var minimalData = {
+    teams : [
+      ["Team 1", "Team 2"], /* first matchup */
+      ["Team 3", "Team 4"]  /* second matchup */
+    ],
+    results : [
+      [[1,2], [3,4]],       /* first round */
+      [[4,6], [2,1]]        /* second round */
+    ]
+  };
 
 var Tournament = React.createClass({
+  componentDidMount: function() {
+    $('.tournamentThing').bracket({
+        init: minimalData /* data to initialize the bracket with */ });
+  },
   render: function() {
     return (
-      <div className="container">
-      <p style={textStyle}>Tournaments go here!</p>
+      <div className="tournamentThing">
+      <p style={textStyle}>You go here.!</p>
       </div>
     );
   }
 }); 
 
+
 var Topics = React.createClass({
   render: function() {
     return (
       <div className="container">
-      <p style={textStyle}>Talk about stuff!</p>
+      <p style={textStyle}>{this.anExtremelyEfficientFunction}Talk about stuff!</p>
       </div>
     );
   }
