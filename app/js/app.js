@@ -268,26 +268,169 @@ var Scoreboard = React.createClass({
     return (
       <div className="container">
       <p style={textStyle}>Score dem boards!</p>
+      <div className="table-responsive">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td>elit</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td>Praesent</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td>ante</td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                </tr>
+                <tr>
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                </tr>
+                <tr>
+                  <td>1,011</td>
+                  <td>eget</td>
+                  <td>nulla</td>
+                  <td>Class</td>
+                  <td>aptent</td>
+                </tr>
+                <tr>
+                  <td>1,012</td>
+                  <td>taciti</td>
+                  <td>sociosqu</td>
+                  <td>ad</td>
+                  <td>litora</td>
+                </tr>
+                <tr>
+                  <td>1,013</td>
+                  <td>torquent</td>
+                  <td>per</td>
+                  <td>conubia</td>
+                  <td>nostra</td>
+                </tr>
+                <tr>
+                  <td>1,014</td>
+                  <td>per</td>
+                  <td>inceptos</td>
+                  <td>himenaeos</td>
+                  <td>Curabitur</td>
+                </tr>
+                <tr>
+                  <td>1,015</td>
+                  <td>sodales</td>
+                  <td>ligula</td>
+                  <td>in</td>
+                  <td>libero</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    );
+  }
+});
+
+var minimalData = {
+    teams : [
+      ["Team 1", "Team 2"], /* first matchup */
+      ["Team 3", "Team 4"]  /* second matchup */
+    ],
+    results : [
+      [[1,2], [3,4]],       /* first round */
+      [[4,6], [2,1]]        /* second round */
+    ]
+  };
+
+var Tournament = React.createClass({
+  componentDidMount: function() {
+    $('.tournamentThing').bracket({
+        init: minimalData /* data to initialize the bracket with */ });
+  },
+  render: function() {
+    return (
+      <div className="tournamentThing">
+      <p style={textStyle}>You go here.!</p>
       </div>
     );
   }
 }); 
 
-var Tournament = React.createClass({
-  render: function() {
-    return (
-      <div className="container">
-      <p style={textStyle}>Tournaments go here!</p>
-      </div>
-    );
-  }
-}); 
 
 var Topics = React.createClass({
   render: function() {
     return (
       <div className="container">
-      <p style={textStyle}>Talk about stuff!</p>
+      <p style={textStyle}>{this.anExtremelyEfficientFunction}Talk about stuff!</p>
       </div>
     );
   }
@@ -299,7 +442,20 @@ var Login = React.createClass({
       <div className="login">
         <p style={textStyle}>Thou mayest login if thou desirest.</p>
         <form role="form">
-          <input type="text" value="Hello!" />
+          <div className="col-md-offset-5 col-md-3">
+            <div className="form-login">
+              <h4>Welcome back.</h4>
+                <input type="text" id="userName" className="form-control input-sm chat-input" placeholder="username" />
+              <br/>
+              <input type="text" id="userPassword" className="form-control input-sm chat-input" placeholder="password" />
+              <br/>
+              <div className="wrapper">
+                <span className="group-btn">     
+                 <a href="#" className="btn btn-primary btn-md">login <i className="fa fa-sign-in"></i></a>
+                </span>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     );
