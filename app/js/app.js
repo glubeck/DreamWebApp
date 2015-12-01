@@ -54,6 +54,11 @@ var logoStyle = {
 
 };
 
+var homeNavStyle = {
+
+  fontSize: '20px',
+};
+
 var buttonStyle = {
   padding: '5px',
 
@@ -67,10 +72,10 @@ var App = React.createClass({
       <Logo />
         <nav className="navbar navbar-default" role="navigation">
           <div className="container">
-              <div className="navbar-header">
-                <a className="navbar-brand" href="/">Home</a>
-              </div>
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul className="nav navbar-nav">
+                  <li style={homeNavStyle}><Link to="/home">Home</Link></li>
+                </ul>
                <ul className="nav navbar-nav">
                   <li><Link to="/ideas">Ideas</Link></li>
                 </ul>
@@ -122,10 +127,56 @@ var Home = React.createClass({
 
 
 var Ideas = React.createClass({
-  render: function() {
+  getInitialState() {
+    return { showModal: false };
+  },
+
+  close() {
+    this.setState({ showModal: false });
+  },
+
+  open() {
+    this.setState({ showModal: true });
+  },
+
+  render() {
+
     return (
-      <div className="container">
-      <p style={textStyle}>This is where people can post ideas for fun games</p>
+      <div>
+
+        <Button
+          bsStyle="primary"
+          bsSize="large"
+          onClick={this.open}
+        >
+          Post an idea!
+        </Button>
+
+        <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal.Header closeButton>
+            <Modal.Title>Just post it</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+           <form role="form">
+          <div className="col-md-offset-5 col-md-3">
+            <div className="form-login">
+                <input type="text" id="ideaTitle" className="form-control input-sm chat-input" placeholder="Title" />
+              <br/>
+              <textarea name="ideaEntry" cols="74" rows="10" ></textarea>
+              <br/>
+              <div className="wrapper">
+                <span className="group-btn">     
+                 <a href="#" className="btn btn-primary btn-md">Post <i className="fa fa-sign-in"></i></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
@@ -484,7 +535,7 @@ var routes = (
           <Route name="topics" path="/topics" component={Topics} />
           <Route name="login" path="/login" component={Login} />
           <Route name="register" path="/register" component={Register} />
-          <Route path="*" component={Home}/>
+          <Route name="home" path="/home" component={Home}/>
         </Route>
       </Router>
 );
