@@ -152,17 +152,25 @@ var Ideas = React.createClass({
           Post an idea!
         </Button>
 
+      <div className="list-group">
+      <p></p>
+      
+        <a href="#" className="list-group-item">First item</a>
+        <a href="#" className="list-group-item">Second item</a>
+        <a href="#" className="list-group-item">Third item</a>
+      </div>
+
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>Just post it</Modal.Title>
           </Modal.Header>
           <Modal.Body>
            <form role="form">
-          <div className="col-md-offset-5 col-md-3">
+          <div>
             <div className="form-login">
                 <input type="text" id="ideaTitle" className="form-control input-sm chat-input" placeholder="Title" />
               <br/>
-              <textarea name="ideaEntry" cols="74" rows="10" ></textarea>
+              <textarea name="ideaEntry" cols="78" rows="10" ></textarea>
               <br/>
               <div className="wrapper">
                 <span className="group-btn">     
