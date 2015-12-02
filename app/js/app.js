@@ -471,14 +471,23 @@ var minimalData = {
   };
 
 var Tournament = React.createClass({
-  componentDidMount: function() {
-    $('.tournamentThing').bracket({
+  // componentDidMount: function() {
+  //   $('.tournamentThing').bracket({
+  //       init: minimalData /* data to initialize the bracket with */ });
+  // },
+  displayBracket: function() {
+    $('.list-group').bracket({
         init: minimalData /* data to initialize the bracket with */ });
   },
   render: function() {
     return (
-      <div className="tournamentThing">
-      <p style={textStyle}>You go here.!</p>
+      <div className="container">
+        <h2>List Group With Linked Items</h2>
+        <div className="list-group">
+          <a href="#" className="list-group-item active" onClick={this.displayBracket}>First item</a>
+          <a href="#" className="list-group-item">Second item</a>
+          <a href="#" className="list-group-item">Third item</a>
+        </div>
       </div>
     );
   }
