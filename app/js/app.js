@@ -89,9 +89,6 @@ var App = React.createClass({
                   <li><Link to="/tournament">Tournament</Link></li>
                 </ul>
                 <ul className="nav navbar-nav">
-                  <li><Link to="/topics">Topics</Link></li>
-                </ul>
-                <ul className="nav navbar-nav">
                   <li><Link to="/login">Login</Link></li>
                 </ul>
                 <ul className="nav navbar-nav">
@@ -494,25 +491,14 @@ var Tournament = React.createClass({
 }); 
 
 
-var Topics = React.createClass({
-  render: function() {
-    return (
-      <div className="container">
-      <p style={textStyle}>{this.anExtremelyEfficientFunction}Talk about stuff!</p>
-      </div>
-    );
-  }
-}); 
-
 var Login = React.createClass({
   render: function() {
     return (
       <div className="login">
-        <p style={textStyle}>Thou mayest login if thou desirest.</p>
         <form role="form">
           <div className="col-md-offset-5 col-md-3">
             <div className="form-login">
-              <h4>Welcome back.</h4>
+              <h4>Thou mayest login if thou desirest</h4>
                 <input type="text" id="userName" className="form-control input-sm chat-input" placeholder="username" />
               <br/>
               <input type="text" id="userPassword" className="form-control input-sm chat-input" placeholder="password" />
@@ -534,7 +520,24 @@ var Register = React.createClass({
   render: function() {
     return (
       <div className="login">
-      <p style={textStyle}>Register it up dawg.</p>
+        <form role="form">
+          <div className="col-md-offset-5 col-md-3">
+            <div className="form-login">
+              <h4>Register to unlock sweet features</h4>
+                <input type="text" id="userName" className="form-control input-sm chat-input" placeholder="username" />
+              <br/>
+              <input type="text" id="userPassword" className="form-control input-sm chat-input" placeholder="password" />
+              <br/>
+              <input type="text" id="userPassword" className="form-control input-sm chat-input" placeholder="password again" />
+              <br/>
+              <div className="wrapper">
+                <span className="group-btn">     
+                 <a href="#" className="btn btn-primary btn-md">register <i className="fa fa-sign-in"></i></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     );
   }
@@ -549,7 +552,6 @@ var routes = (
           <Route name="dice" path="/dice" component={Dice} />
           <Route name="scoreboard" path="/scoreboard" component={Scoreboard} />
           <Route name="tournament" path="/tournament" component={Tournament} />
-          <Route name="topics" path="/topics" component={Topics} />
           <Route name="login" path="/login" component={Login} />
           <Route name="register" path="/register" component={Register} />
           <Route name="home" path="/home" component={Home}/>
